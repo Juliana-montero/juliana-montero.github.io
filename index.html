@@ -1,179 +1,581 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juliana Montero | Social Media & Content Strategist</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juliana Montero | Social Media & Content Strategist</title>
 
-<style>
+  <style>
+    :root {
+      --bg: #f7f3ee;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #6f8f72;
+      --accent-dark: #3f5f49;
+      --card: #ffffff;
+      --line: #e5e0d8;
+    }
 
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f8f9fa;
-    color:#222;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-header{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:80px 20px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-header h1{
-    font-size:3rem;
-    margin-bottom:10px;
-}
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-header p{
-    font-size:1.2rem;
-    max-width:700px;
-    margin:auto;
-}
+    header {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 40px 8%;
+    }
 
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:60px 20px;
-}
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
 
-h2{
-    color:#111827;
-    margin-bottom:20px;
-}
+    .tag {
+      display: inline-block;
+      background: #e2eadf;
+      color: var(--accent-dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
 
-.card{
-    background:white;
-    padding:25px;
-    margin-bottom:20px;
-    border-radius:12px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
+    h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
 
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
+    .hero h2 {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
 
-.skill{
-    background:#e5e7eb;
-    padding:10px 15px;
-    border-radius:20px;
-}
+    .hero p {
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
 
-footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:30px;
-}
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-a{
-    color:#2563eb;
-    text-decoration:none;
-}
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--accent-dark);
+      color: white;
+      display: inline-block;
+    }
 
-</style>
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent-dark);
+      border: 1px solid var(--accent-dark);
+    }
+
+    .hero-card {
+      background: var(--card);
+      padding: 32px;
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+    }
+
+    .hero-card li {
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 80px 8%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .metric {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 5px;
+    }
+
+    .case {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 36px;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+    }
+
+    .case-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .case-label {
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .case h3 {
+      font-size: 28px;
+      margin: 8px 0 12px;
+    }
+
+    .case p {
+      color: var(--muted);
+    }
+
+    .case ul {
+      margin-top: 18px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mini-card {
+      background: #f6f7f3;
+      padding: 20px;
+      border-radius: 18px;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--line);
+      padding-left: 30px;
+    }
+
+    .timeline-item {
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -39px;
+      top: 7px;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .timeline-item h3 {
+      font-size: 20px;
+    }
+
+    .timeline-item span {
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 50px 8%;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 80px;
+      }
+
+      .hero-card {
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Juliana Montero</h1>
-    <p>
-        Social Media & Content Strategist
-        especializada en contenido digital, redes sociales,
-        SEO e inteligencia artificial aplicada al marketing.
+  <header>
+    <div class="hero">
+      <div>
+        <span class="tag">Social Media & Content Strategist</span>
+        <h1>Juliana Montero</h1>
+        <h2>Estrategia de redes sociales, contenido digital y comunicación creativa.</h2>
+        <p>
+          Ayudo a marcas, organizaciones y pymes a construir una presencia digital relevante
+          mediante estrategias de contenido, storytelling y comunicación orientada a objetivos.
+        </p>
+
+        <div class="buttons">
+          <a href="#casos" class="btn">Ver casos</a>
+          <a href="#contacto" class="btn secondary">Contactar</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Mi enfoque</h3>
+        <ul>
+          <li>→ Entender el negocio y sus objetivos.</li>
+          <li>→ Transformar ideas en contenidos claros.</li>
+          <li>→ Crear formatos para redes, web y campañas.</li>
+          <li>→ Usar IA para optimizar procesos y producción.</li>
+          <li>→ Comunicar con estrategia, creatividad y propósito.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre-mi">
+    <h2 class="section-title">Sobre mí</h2>
+    <p class="section-intro">
+      Soy comunicadora social y estratega digital con experiencia en gestión de redes sociales,
+      creación de contenido, SEO, comunicación institucional y producción audiovisual.
+      Mi interés principal está en las redes sociales como herramienta para conectar marcas,
+      audiencias y objetivos de comunicación.
     </p>
-</header>
 
-<section>
-    <h2>Sobre mí</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Social Media</h3>
+        <p>
+          Diseño calendarios editoriales, propongo formatos, gestiono publicaciones,
+          adapto mensajes y conecto con comunidades digitales.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Contenido</h3>
+        <p>
+          Creo copies, guiones, carruseles, reels, stories, artículos SEO,
+          contenidos web y mensajes adaptados a cada marca.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>IA & Procesos</h3>
+        <p>
+          Utilizo herramientas como ChatGPT y Gemini para optimizar documentación,
+          resolver feedbacks, crear prompts y agilizar procesos de contenido.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="impacto">
+    <h2 class="section-title">Impacto profesional</h2>
+    <p class="section-intro">
+      Algunas cifras que resumen mi experiencia reciente en contenido, redes sociales y comunicación digital.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="metric">+100</div>
+        <p>marcas trabajadas en distintos sectores.</p>
+      </div>
+
+      <div class="card">
+        <div class="metric">+200</div>
+        <p>artículos SEO desarrollados con apoyo de IA.</p>
+      </div>
+
+      <div class="card">
+        <div class="metric">29,8 mil</div>
+        <p>visualizaciones generadas en PopuLab entre enero y junio de 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos">
+    <h2 class="section-title">Casos destacados</h2>
+    <p class="section-intro">
+      Selección de proyectos que muestran mi evolución entre estrategia de contenidos,
+      redes sociales, comunicación institucional, SEO e inteligencia artificial.
+    </p>
+
+    <div class="case">
+      <div class="case-header">
+        <div>
+          <div class="case-label">Social Media · Estrategia · Comunidad</div>
+          <h3>PopuLab — Universidad del Valle</h3>
+        </div>
+        <strong>2025 - 2026</strong>
+      </div>
+
+      <p>
+        Reactivación y gestión de redes sociales para un laboratorio universitario enfocado
+        en barrios populares, investigación social y proyectos comunitarios.
+      </p>
+
+      <ul>
+        <li>Creación de contenido desde cero alineado a objetivos de visibilidad y alcance.</li>
+        <li>Definición de calendarios editoriales, formatos y líneas de contenido.</li>
+        <li>Gestión de Instagram, publicación, adaptación de mensajes y seguimiento de métricas.</li>
+        <li>Conexión con cuentas de interés a nivel nacional e internacional.</li>
+      </ul>
+
+      <div class="metrics">
+        <div class="mini-card">
+          <div class="metric">29,8 mil</div>
+          <p>visualizaciones</p>
+        </div>
+        <div class="mini-card">
+          <div class="metric">6 mil</div>
+          <p>cuentas alcanzadas</p>
+        </div>
+        <div class="mini-card">
+          <div class="metric">1,5 mil</div>
+          <p>interacciones</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header">
+        <div>
+          <div class="case-label">Contenido · SEO · IA</div>
+          <h3>ORBIDI Digital</h3>
+        </div>
+        <strong>2024 - Actualidad</strong>
+      </div>
+
+      <p>
+        Creación de contenido para pymes en España, con foco en SEO, redes sociales,
+        webs, landing pages y adaptación de mensajes para múltiples marcas.
+      </p>
+
+      <ul>
+        <li>Redacción de artículos SEO, copies para webs, landing pages y redes sociales.</li>
+        <li>Trabajo con más de 100 clientes, adaptando tono, propuesta de valor y puntos de dolor.</li>
+        <li>Uso de IA para generar contenido, resolver feedbacks y optimizar procesos.</li>
+        <li>Documentación de procesos, creación de prompts simples y automatización documental.</li>
+        <li>Colaboración con equipos de SEO, diseño, desarrollo, implementación y estrategia.</li>
+      </ul>
+    </div>
+
+    <div class="case">
+      <div class="case-header">
+        <div>
+          <div class="case-label">Comunicación institucional · Eventos · Audiovisual</div>
+          <h3>Tecnicaña</h3>
+        </div>
+        <strong>2023 - 2024</strong>
+      </div>
+
+      <p>
+        Apoyo en comunicación institucional y promoción de eventos académicos para una asociación
+        del sector agroindustrial de la caña de azúcar.
+      </p>
+
+      <ul>
+        <li>Gestión de contenido para redes sociales y canales digitales.</li>
+        <li>Producción audiovisual, entrevistas, guiones, edición de imágenes y vídeos.</li>
+        <li>Cobertura de eventos, seminarios y actividades institucionales.</li>
+        <li>Apoyo en campañas de comunicación y difusión que contribuyeron a aumentar inscripciones.</li>
+        <li>Organización de bases de datos, materiales, contenidos y documentación.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="trayectoria">
+    <h2 class="section-title">Trayectoria profesional</h2>
+    <p class="section-intro">
+      Una evolución que conecta comunicación social, producción audiovisual,
+      redes sociales, marketing digital y estrategia de contenidos.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span>2024 - Actualidad</span>
+        <h3>Copywriter · ORBIDI Digital</h3>
+        <p>Contenido SEO, redes sociales, páginas web, landing pages, IA y documentación de procesos.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2025 - 2026</span>
+        <h3>Community Manager · PopuLab, Universidad del Valle</h3>
+        <p>Gestión de redes sociales, estrategia de contenidos y reactivación de canales digitales.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2023 - 2024</span>
+        <h3>Auxiliar de Comunicaciones · Tecnicaña</h3>
+        <p>Comunicación institucional, eventos, producción audiovisual, contenidos web y redes sociales.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2023</span>
+        <h3>Realizadora audiovisual · Proyecto La Calle</h3>
+        <p>Documentación de testimonios, trabajo de campo y comunicación con comunidades.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2023</span>
+        <h3>Practicante de Comunicaciones · GREAT PopuLab</h3>
+        <p>Gestión de redes sociales, creación de contenido y cobertura de eventos académicos y comunitarios.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2022</span>
+        <h3>Asistente de Comunicaciones · Facultad de Ingeniería, Universidad del Valle</h3>
+        <p>Creación y edición de contenido audiovisual, apoyo en planes de comunicación y presencia digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <h2 class="section-title">Habilidades</h2>
+    <p class="section-intro">
+      Herramientas y áreas de trabajo que integran mi perfil como estratega de redes y contenidos digitales.
+    </p>
+
+    <div class="skills">
+      <span class="skill">Social Media Strategy</span>
+      <span class="skill">Community Management</span>
+      <span class="skill">Calendarios editoriales</span>
+      <span class="skill">Copywriting</span>
+      <span class="skill">Storytelling</span>
+      <span class="skill">Guiones</span>
+      <span class="skill">Reels</span>
+      <span class="skill">Carruseles</span>
+      <span class="skill">Stories</span>
+      <span class="skill">SEO On Page</span>
+      <span class="skill">SEO Off Page</span>
+      <span class="skill">Keyword Research</span>
+      <span class="skill">WordPress</span>
+      <span class="skill">Landing Pages</span>
+      <span class="skill">Meta Ads</span>
+      <span class="skill">Canva</span>
+      <span class="skill">CapCut</span>
+      <span class="skill">Premiere Pro</span>
+      <span class="skill">Photoshop</span>
+      <span class="skill">Illustrator</span>
+      <span class="skill">ChatGPT</span>
+      <span class="skill">Gemini</span>
+      <span class="skill">Google Workspace</span>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <p class="section-intro">
+      Si quieres conocer más sobre mi trabajo o conectar profesionalmente, puedes escribirme.
+    </p>
 
     <div class="card">
-        <p>
-            Comunicadora social con experiencia en estrategia digital,
-            gestión de redes sociales, SEO, comunicación institucional
-            y creación de contenidos para más de 100 marcas.
-        </p>
-
-        <p>
-            Mi trabajo combina creatividad, análisis y tecnología
-            para transformar objetivos de negocio en estrategias de
-            comunicación y contenido que generan visibilidad,
-            conexión y posicionamiento.
-        </p>
+      <p><strong>Email:</strong> <a href="mailto:julianamonteroo117@gmail.com">julianamonteroo117@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank">linkedin.com/in/juliana-montero</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/juliana-montero" target="_blank">github.com/juliana-montero</a></p>
     </div>
-</section>
+  </section>
 
-<section>
-    <h2>Experiencia destacada</h2>
-
-    <div class="card">
-        <h3>ORBIDI Digital</h3>
-        <p>
-            Desarrollo de contenidos SEO, páginas web, landing pages,
-            contenido para redes sociales y optimización de procesos
-            mediante IA para más de 100 marcas.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>PopuLab</h3>
-        <p>
-            Estrategia y gestión de redes sociales.
-            Reactivación de canales digitales y generación de
-            más de 29.800 visualizaciones y 1.500 interacciones.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Tecnicaña</h3>
-        <p>
-            Comunicación institucional, producción audiovisual,
-            cobertura de eventos, entrevistas, diseño y apoyo
-            a campañas de promoción.
-        </p>
-    </div>
-
-</section>
-
-<section>
-
-<h2>Habilidades</h2>
-
-<div class="skills">
-<div class="skill">Social Media</div>
-<div class="skill">Content Strategy</div>
-<div class="skill">SEO</div>
-<div class="skill">Storytelling</div>
-<div class="skill">Copywriting</div>
-<div class="skill">WordPress</div>
-<div class="skill">Canva</div>
-<div class="skill">Meta Ads</div>
-<div class="skill">ChatGPT</div>
-<div class="skill">Gemini</div>
-</div>
-
-</section>
-
-<section>
-
-<h2>Contacto</h2>
-
-<div class="card">
-<p>LinkedIn: próximamente</p>
-<p>Email: julianamonteroo117@gmail.com</p>
-<p>GitHub: github.com/juliana-montero</p>
-</div>
-
-</section>
-
-<footer>
-    © 2026 Juliana Montero
-</footer>
+  <footer>
+    <p>© 2026 Juliana Montero · Social Media & Content Strategist</p>
+  </footer>
 
 </body>
 </html>
