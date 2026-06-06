@@ -47,16 +47,15 @@
       font-weight: 700;
     }
 
+    img {
+      width: 100%;
+      display: block;
+    }
+
     header, section {
       max-width: 1180px;
       margin: auto;
       padding: 88px 24px;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
     }
 
     .hero {
@@ -94,8 +93,7 @@
       max-width: 720px;
     }
 
-    .hero p,
-    .intro {
+    .hero p, .intro {
       font-size: 18px;
       color: var(--muted);
       max-width: 780px;
@@ -129,28 +127,24 @@
     }
 
     .photo-box {
-      background: var(--card);
       border-radius: 34px;
       overflow: hidden;
       box-shadow: 0 22px 58px rgba(0,0,0,0.08);
+      background: var(--card);
     }
 
-    .photo-placeholder {
+    .photo-box img {
+      width: 100%;
       height: 620px;
-      background: linear-gradient(135deg, #E9DFD3, #CBD8C2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--muted);
-      padding: 28px;
+      object-fit: cover;
+      display: block;
     }
 
     .personal-note {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       padding: 46px 0;
-      margin-top: 24px;
+      margin-top: 28px;
       font-size: 26px;
       line-height: 1.4;
       color: var(--text);
@@ -177,28 +171,19 @@
       margin-top: 36px;
     }
 
-    .card,
-    .case,
-    .work-card,
-    .process-step {
+    .card, .case, .work-card, .process-step, .timeline-item {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 28px;
       padding: 30px;
     }
 
-    .card h3,
-    .work-card h3,
-    .process-step h3 {
+    .card h3, .work-card h3, .process-step h3, .timeline-item h3 {
       font-size: 24px;
       margin-bottom: 10px;
     }
 
-    .card p,
-    .case p,
-    .work-card p,
-    .process-step p,
-    li {
+    .card p, .case p, .work-card p, .process-step p, .timeline-item p, li {
       color: var(--muted);
     }
 
@@ -264,6 +249,15 @@
       text-align: center;
       padding: 18px;
       font-size: 14px;
+      overflow: hidden;
+    }
+
+    .evidence-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      border-radius: 18px;
     }
 
     .case-links {
@@ -271,6 +265,20 @@
       gap: 14px;
       flex-wrap: wrap;
       margin-top: 26px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .timeline-item span {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 8px;
     }
 
     .process {
@@ -315,17 +323,12 @@
         padding: 58px 20px;
       }
 
-      .hero,
-      .grid,
-      .grid-2,
-      .evidence,
-      .evidence.four,
-      .process {
+      .hero, .grid, .grid-2, .evidence, .evidence.four, .process {
         grid-template-columns: 1fr;
       }
 
-      .photo-placeholder {
-        height: 360px;
+      .photo-box img {
+        height: 420px;
       }
 
       h1 {
@@ -341,8 +344,10 @@
     <div class="hero">
       <div>
         <span class="tag">Social Media & Content Strategist</span>
-        <h1>Juliana Montero</h1>
+        <h1>Juliana<br>Montero</h1>
+
         <h2>Estrategia de redes sociales, contenido digital y comunicación creativa.</h2>
+
         <p>
           Creo estrategias de contenido y redes sociales que ayudan a marcas,
           organizaciones y proyectos a comunicar mejor sus ideas y conectar con
@@ -355,16 +360,16 @@
           <a href="#contacto" class="btn secondary">Contactar</a>
         </div>
       </div>
-      <div class="photo-box">
-      <img src="JULIANA.png" alt="Juliana Montero">
-      </div>
-   
 
+      <div class="photo-box">
+        <img src="./JULIANA.png" alt="Juliana Montero">
+      </div>
     </div>
   </header>
 
   <section id="sobre-mi">
     <h2 class="section-title">Sobre mí</h2>
+
     <p class="intro">
       Soy comunicadora social y estratega digital especializada en redes sociales,
       contenido y comunicación digital. He trabajado con organizaciones sociales,
@@ -388,10 +393,12 @@
         <h3>Redes sociales</h3>
         <p>Calendarios editoriales, formatos, community management, contenido y seguimiento.</p>
       </div>
+
       <div class="card">
         <h3>Contenido digital</h3>
         <p>Copies, guiones, reels, carruseles, stories, webs, landing pages y storytelling.</p>
       </div>
+
       <div class="card">
         <h3>IA y procesos</h3>
         <p>Uso de IA para optimizar documentación, feedbacks, prompts y producción de contenido.</p>
@@ -408,10 +415,12 @@
         <div class="metric">+100</div>
         <p>marcas trabajadas en distintos sectores.</p>
       </div>
+
       <div class="card">
         <div class="metric">+200</div>
         <p>contenidos desarrollados, incluyendo artículos SEO y piezas digitales.</p>
       </div>
+
       <div class="card">
         <div class="metric">29,8 mil</div>
         <p>visualizaciones generadas en PopuLab entre enero y junio de 2026.</p>
@@ -421,6 +430,7 @@
 
   <section id="casos">
     <h2 class="section-title">Casos destacados</h2>
+
     <p class="intro">
       Proyectos que muestran mi trabajo en estrategia de redes sociales, comunicación digital,
       contenido para marcas y producción audiovisual.
@@ -452,10 +462,12 @@
           <div class="metric">29,8 mil</div>
           <p>visualizaciones</p>
         </div>
+
         <div class="card">
           <div class="metric">6 mil</div>
           <p>cuentas alcanzadas</p>
         </div>
+
         <div class="card">
           <div class="metric">1,5 mil</div>
           <p>interacciones</p>
@@ -532,6 +544,7 @@
           <div class="metric">+1.000</div>
           <p>asistentes en seminario internacional de dos días.</p>
         </div>
+
         <div class="card">
           <div class="metric">+80</div>
           <p>marcas participantes entre stands, convenios y branding.</p>
@@ -553,6 +566,7 @@
 
   <section id="trabajo">
     <h2 class="section-title">Trabajo seleccionado</h2>
+
     <p class="intro">
       Una selección de proyectos web donde participé en la arquitectura, organización
       y redacción de contenidos.
@@ -562,29 +576,81 @@
       <div class="work-card">
         <div class="evidence-item">Captura: home La Hansa de Laredo</div>
         <h3>La Hansa de Laredo</h3>
+
         <p>
           Organicé la información entregada por el cliente, estructuré los apartados
           solicitados y redacté el contenido completo del sitio. El diseño e implementación
           fueron realizados por otra persona.
         </p>
+
         <a href="https://www.hansalaredo.org/" target="_blank">Ver web →</a>
       </div>
 
       <div class="work-card">
         <div class="evidence-item">Captura: home Agencia Dpuntas</div>
         <h3>Agencia Dpuntas</h3>
+
         <p>
           Redacté el contenido, organicé la información del cliente y participé en la
           arquitectura de la web junto con la diseñadora. La implementación fue realizada
           por otra persona.
         </p>
+
         <a href="https://agenciadpuntas.com/" target="_blank">Ver web →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="trayectoria">
+    <h2 class="section-title">Trayectoria profesional</h2>
+
+    <p class="intro">
+      Una evolución que conecta comunicación social, producción audiovisual,
+      redes sociales, marketing digital y estrategia de contenidos.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span>2024 - Actualidad</span>
+        <h3>Copywriter · ORBIDI Digital</h3>
+        <p>Contenido para redes sociales, webs, landing pages, SEO, IA aplicada y adaptación de mensajes para más de 100 marcas.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2025 - 2026</span>
+        <h3>Community Manager · PopuLab, Universidad del Valle</h3>
+        <p>Gestión de redes sociales, estrategia de contenidos, community management y reactivación de canales digitales.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2023 - 2024</span>
+        <h3>Auxiliar de Comunicaciones · Tecnicaña</h3>
+        <p>Comunicación institucional, redes sociales, producción audiovisual, eventos y contenidos digitales.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2023</span>
+        <h3>Realizadora audiovisual · Proyecto La Calle</h3>
+        <p>Documentación de testimonios, trabajo de campo y comunicación con comunidades.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2023</span>
+        <h3>Practicante de Comunicaciones · GREAT PopuLab</h3>
+        <p>Gestión de redes sociales, creación de contenido y cobertura de eventos académicos y comunitarios.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span>2022</span>
+        <h3>Asistente de Comunicaciones · Facultad de Ingeniería, Universidad del Valle</h3>
+        <p>Creación y edición de contenido audiovisual, apoyo en planes de comunicación y presencia digital.</p>
       </div>
     </div>
   </section>
 
   <section id="proceso">
     <h2 class="section-title">Mi proceso</h2>
+
     <p class="intro">
       Trabajo desde una mirada estratégica, conectando objetivos, audiencia, formato y mensaje.
     </p>
@@ -595,16 +661,19 @@
         <h3>Escucho</h3>
         <p>Entiendo el contexto, los objetivos y la audiencia.</p>
       </div>
+
       <div class="process-step">
         <span>02</span>
         <h3>Planifico</h3>
         <p>Defino formatos, mensajes y oportunidades de comunicación.</p>
       </div>
+
       <div class="process-step">
         <span>03</span>
         <h3>Creo</h3>
         <p>Desarrollo contenidos adaptados a cada canal y necesidad.</p>
       </div>
+
       <div class="process-step">
         <span>04</span>
         <h3>Optimizo</h3>
@@ -619,6 +688,8 @@
     <div class="skills">
       <span class="skill">Social Media Strategy</span>
       <span class="skill">Community Management</span>
+      <span class="skill">Content Strategy</span>
+      <span class="skill">Gestión de proyectos de contenido</span>
       <span class="skill">Calendarios editoriales</span>
       <span class="skill">Copywriting</span>
       <span class="skill">Storytelling</span>
@@ -636,11 +707,13 @@
       <span class="skill">Premiere Pro</span>
       <span class="skill">ChatGPT</span>
       <span class="skill">Gemini</span>
+      <span class="skill">Inglés B2</span>
     </div>
   </section>
 
   <section id="contacto">
     <h2 class="section-title">Contacto</h2>
+
     <p class="intro">
       Si quieres conocer más sobre mi trabajo o conectar profesionalmente, puedes escribirme.
     </p>
