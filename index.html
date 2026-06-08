@@ -49,6 +49,7 @@
 
     img {
       width: 100%;
+      margin: auto;
       display: block;
     }
 
@@ -128,17 +129,23 @@
 
     .photo-box {
       border-radius: 34px;
-      overflow: hidden;
+      overflow: shown;
       box-shadow: 0 22px 58px rgba(0,0,0,0.08);
       background: var(--card);
     }
-
+    
     .photo-box img {
       width: 100%;
       height: 620px;
       object-fit: cover;
       display: block;
     }
+
+    img {
+    width: 100%;
+    margin: auto;
+    display: block;
+  }
 
     .personal-note {
       border-top: 1px solid var(--line);
@@ -360,10 +367,11 @@
           <a href="#contacto" class="btn secondary">Contactar</a>
         </div>
       </div>
+      
+        <div class="photo-box">
+          <img src="JULIANA.png" alt="Juliana Montero" loading="lazy">
+        </div>
 
-      <div class="photo-box">
-       <img src="main/JULIANA.png">
-      </div>
     </div>
   </header>
 
