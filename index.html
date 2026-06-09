@@ -147,6 +147,7 @@
       width: 100%;
       height: 620px;
       object-fit: cover;
+      object-position: center top;
       display: block;
     }
 
@@ -271,7 +272,21 @@
       border-radius: 18px;
     }
 
-    /* Carrusel simple para mostrar varias evidencias en un mismo bloque */
+    .evidence-item video {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      border-radius: 18px;
+      background: #000;
+    }
+
+    /*
+      Carrusel reutilizable:
+      1) Estructura base: .mini-carousel > .mini-carousel-track > img
+      2) Puedes agregar o quitar imagenes sin tocar este CSS
+      3) Para otro carrusel, copia esa estructura y (opcional) define data-interval en ms
+    */
     .mini-carousel {
       position: relative;
       width: 100%;
@@ -283,33 +298,54 @@
 
     .mini-carousel-track {
       display: flex;
-      width: 300%;
       height: 100%;
-      animation: evidence-slide 12s infinite;
+      transition: transform 0.7s ease;
+      will-change: transform;
     }
 
     .mini-carousel-track img {
-      width: 33.3333%;
+      width: 100%;
       height: 100%;
       min-height: 190px;
       object-fit: cover;
       border-radius: 0;
-      flex: 0 0 33.3333%;
+      flex: 0 0 100%;
     }
 
-    @keyframes evidence-slide {
-      0%, 28% {
-        transform: translateX(0);
-      }
-      33%, 61% {
-        transform: translateX(-33.3333%);
-      }
-      66%, 94% {
-        transform: translateX(-66.6666%);
-      }
-      100% {
-        transform: translateX(0);
-      }
+    /* Controles manuales del carrusel (anterior/siguiente) */
+    .mini-carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(30, 30, 30, 0.65);
+      color: #FFFFFF;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .mini-carousel-control.prev {
+      left: 10px;
+    }
+
+    .mini-carousel-control.next {
+      right: 10px;
+    }
+
+    .mini-carousel-control:hover {
+      background: rgba(30, 30, 30, 0.85);
+    }
+
+    .mini-carousel-control:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
     .case-links {
@@ -418,7 +454,7 @@
       
         <div class="photo-box">
           <!-- Opcion: usar WebP para mejorar rendimiento -->
-          <img src="assets/FOTO TECNICAÑA.jpg" alt="Retrato profesional de Juliana Montero" loading="eager" decoding="async">
+          <img src="assets/ JULIANA.png" alt="Retrato profesional de Juliana Montero" loading="eager" decoding="async">
         </div>
 
     </div>
@@ -536,18 +572,30 @@
 
       <div class="evidence">
         <div class="evidence-item">
-          <div class="mini-carousel" aria-label="Carrusel de evidencias de PopuLab">
+          <div class="mini-carousel" aria-label="Carrusel de evidencias de PopuLab" data-interval="2500">
             <div class="mini-carousel-track">
-              <img src="assets/CUATRO CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza cuatro" loading="lazy">
-              <img src="assets/CINCO CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza cinco" loading="lazy">
-              <img src="assets/SIETE CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
+              <img src="assets/1CP.png" alt="Carrusel PopuLab: pieza cuatro" loading="lazy">
+              <img src="assets/2CP.png" alt="Carrusel PopuLab: pieza cinco" loading="lazy">
+              <img src="assets/3CP.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
+              <img src="assets/4CP.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
+              <img src="assets/5CP.png" alt="Carrusel PopuLab: pieza adicional" loading="lazy">
+              <img src="assets/6CP.png" alt="Carrusel PopuLab: pieza adicional" loading="lazy">
             </div>
+            <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+            <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
           </div>
         </div>
-        <div class="evidence-item">           
-          <img src="assets/SIETE CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
+        <div class="evidence-item">
+          <!-- Portada manual: reemplaza REEL1-poster.jpg por tu archivo .jpg o .png -->
+          <video class="reel-video" controls preload="metadata" playsinline poster="assets/SIETE CARRUSEL POPULAB.png" aria-label="Reel 1 PopuLab">
+            <source src="assets/REEL1.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+          </video>
         </div>       
-        <div class="evidence-item">Imagen o portada: reel Story Time Guapi</div>
+        <div class="evidence-item">
+          <!-- Slide estatico: cambia el src si quieres mostrar otro archivo -->
+          <img src="assets/1CP.png" alt="Slide estatico de evidencia PopuLab" loading="lazy">
+        </div>
       </div>
 
       <div class="case-links">
@@ -622,7 +670,9 @@
       </div>
 
       <div class="evidence four">
-        <div class="evidence-item">Imagen: equipo de comunicaciones</div>
+        <div class="evidence-item">
+          
+        </div>
         <div class="evidence-item">Imagen: entrevista</div>
         <div class="evidence-item">Imagen o portada: reel</div>
         <div class="evidence-item">Imagen: pieza gráfica</div>
@@ -804,6 +854,87 @@
   <footer>
     © 2026 Juliana Montero · Social Media & Content Strategist
   </footer>
+
+  <script>
+    /*
+      Inicializador de carruseles:
+      - Soporta cualquier cantidad de slides por carrusel.
+      - Para crear otro carrusel en otra seccion, reutiliza la misma estructura HTML.
+      - Ajusta velocidad por carrusel con data-interval="3000" (ms).
+    */
+    document.querySelectorAll('.mini-carousel').forEach((carousel) => {
+      const track = carousel.querySelector('.mini-carousel-track');
+      if (!track) return;
+
+      const slides = Array.from(track.querySelectorAll('img'));
+      if (slides.length <= 1) return;
+
+      const prevBtn = carousel.querySelector('.mini-carousel-control.prev');
+      const nextBtn = carousel.querySelector('.mini-carousel-control.next');
+
+      const intervalMs = Number(carousel.dataset.interval || 2500);
+      let index = 0;
+      let autoplayId;
+
+      const goTo = (nextIndex) => {
+        index = (nextIndex + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      };
+
+      const startAutoplay = () => {
+        clearInterval(autoplayId);
+        autoplayId = setInterval(() => {
+          goTo(index + 1);
+        }, intervalMs);
+      };
+
+      const goNext = () => {
+        goTo(index + 1);
+        startAutoplay();
+      };
+
+      const goPrev = () => {
+        goTo(index - 1);
+        startAutoplay();
+      };
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', goNext);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', goPrev);
+      }
+
+      carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoplayId);
+      });
+
+      carousel.addEventListener('mouseleave', () => {
+        startAutoplay();
+      });
+
+      carousel.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') goNext();
+        if (event.key === 'ArrowLeft') goPrev();
+      });
+
+      carousel.setAttribute('tabindex', '0');
+
+      goTo(0);
+      startAutoplay();
+    });
+
+    /* Reel con audio habilitado para reproduccion manual. */
+    document.querySelectorAll('.reel-video').forEach((videoEl) => {
+      videoEl.muted = false;
+
+      videoEl.addEventListener('loadedmetadata', () => {
+        videoEl.muted = false;
+        videoEl.volume = 1;
+      });
+    });
+  </script>
 
 </body>
 </html>
