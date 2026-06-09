@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Meta base para codificacion, responsive y SEO basico -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV y portafolio profesional de Juliana Montero, estratega de redes sociales, contenido digital y comunicacion creativa." />
   <title>Juliana Montero | Social Media & Content Strategist</title>
 
+  <!-- Tipografias: opcion 1 (actual) = Inter + Playfair, opcion 2 = Poppins + Lora -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Variables de diseno: cambia estos valores para ajustar toda la identidad visual */
     :root {
       --bg: #F8F5F0;
       --text: #1E1E1E;
@@ -20,6 +24,7 @@
       --line: #E4DDD3;
     }
 
+    /* Reset base para normalizar espaciado y caja */
     * {
       margin: 0;
       padding: 0;
@@ -30,6 +35,7 @@
       scroll-behavior: smooth;
     }
 
+    /* Estilos globales de tipografia y color */
     body {
       font-family: "Inter", sans-serif;
       background: var(--bg);
@@ -41,6 +47,7 @@
       font-family: "Playfair Display", serif;
     }
 
+    /* Opcion: subrayado discreto en hover para mejorar accesibilidad */
     a {
       color: var(--accent);
       text-decoration: none;
@@ -59,6 +66,7 @@
       padding: 88px 24px;
     }
 
+    /* Hero principal: texto + foto en dos columnas */
     .hero {
       min-height: 90vh;
       display: grid;
@@ -127,9 +135,10 @@
       border: 1px solid var(--accent);
     }
 
+    /* Contenedor de foto: opcion alterna = border-radius menor si quieres estilo mas sobrio */
     .photo-box {
       border-radius: 34px;
-      overflow: shown;
+      overflow: hidden;
       box-shadow: 0 22px 58px rgba(0,0,0,0.08);
       background: var(--card);
     }
@@ -141,12 +150,7 @@
       display: block;
     }
 
-    img {
-    width: 100%;
-    margin: auto;
-    display: block;
-  }
-
+    /* Bloques reutilizables para secciones de contenido */
     .personal-note {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -267,6 +271,47 @@
       border-radius: 18px;
     }
 
+    /* Carrusel simple para mostrar varias evidencias en un mismo bloque */
+    .mini-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .mini-carousel-track {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: evidence-slide 12s infinite;
+    }
+
+    .mini-carousel-track img {
+      width: 33.3333%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      border-radius: 0;
+      flex: 0 0 33.3333%;
+    }
+
+    @keyframes evidence-slide {
+      0%, 28% {
+        transform: translateX(0);
+      }
+      33%, 61% {
+        transform: translateX(-33.3333%);
+      }
+      66%, 94% {
+        transform: translateX(-66.6666%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
     .case-links {
       display: flex;
       gap: 14px;
@@ -318,6 +363,7 @@
       font-size: 15px;
     }
 
+    /* Pie de pagina */
     footer {
       text-align: center;
       padding: 52px 24px;
@@ -325,6 +371,7 @@
       color: var(--muted);
     }
 
+    /* Responsive: todo pasa a una sola columna en pantallas pequenas */
     @media (max-width: 900px) {
       header, section {
         padding: 58px 20px;
@@ -334,7 +381,7 @@
         grid-template-columns: 1fr;
       }
 
-      .photo-box JULIANA.png {
+      .photo-box img {
         height: 420px;
       }
 
@@ -347,6 +394,7 @@
 
 <body>
 
+  <!-- HERO: propuesta de valor + CTA principales -->
   <header>
     <div class="hero">
       <div>
@@ -363,18 +411,20 @@
 
         <div class="buttons">
           <a href="#casos" class="btn">Ver proyectos</a>
-          <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" class="btn secondary">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" rel="noopener noreferrer" class="btn secondary">LinkedIn</a>
           <a href="#contacto" class="btn secondary">Contactar</a>
         </div>
       </div>
       
         <div class="photo-box">
-          <img src="/assets/FOTO TECNICAÑA.jpg" alt="Juliana Montero" loading="lazy">
+          <!-- Opcion: usar WebP para mejorar rendimiento -->
+          <img src="assets/FOTO TECNICAÑA.jpg" alt="Retrato profesional de Juliana Montero" loading="eager" decoding="async">
         </div>
 
     </div>
   </header>
 
+  <!-- SOBRE MI: perfil profesional y enfoque de trabajo -->
   <section id="sobre-mi">
     <h2 class="section-title">Sobre mí</h2>
 
@@ -414,6 +464,7 @@
     </div>
   </section>
 
+  <!-- IMPACTO: metricas de trayectoria -->
   <section id="impacto">
     <h2 class="section-title">Impacto profesional</h2>
     <p class="intro">Una síntesis de mi experiencia reciente en contenido, redes sociales y comunicación digital.</p>
@@ -436,6 +487,7 @@
     </div>
   </section>
 
+  <!-- CASOS: proyectos explicados con contexto, acciones y evidencia -->
   <section id="casos">
     <h2 class="section-title">Casos destacados</h2>
 
@@ -484,7 +536,13 @@
 
       <div class="evidence">
         <div class="evidence-item">
-           <img src="/assets/DOS CARRUSEL POPULAB.png" alt="DOS CARRUSEL POPULAB" loading="lazy">
+          <div class="mini-carousel" aria-label="Carrusel de evidencias de PopuLab">
+            <div class="mini-carousel-track">
+              <img src="/assets/CUATRO CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza cuatro" loading="lazy">
+              <img src="/assets/CINCO CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza cinco" loading="lazy">
+              <img src="/assets/SIETE CARRUSEL POPULAB.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
+            </div>
+          </div>
         </div>
         <div class="evidence-item">           
           <img src="/assets/SIETE CARRUSEL POPULAB.png" alt="DOS CARRUSEL POPULAB" loading="lazy">
@@ -493,8 +551,8 @@
       </div>
 
       <div class="case-links">
-        <a href="https://www.instagram.com/populabcali/" target="_blank" class="btn">Ver Instagram</a>
-        <a href="https://populab.correounivalle.edu.co/" target="_blank" class="btn secondary">Ver sitio web</a>
+        <a href="https://www.instagram.com/populabcali/" target="_blank" rel="noopener noreferrer" class="btn">Ver Instagram</a>
+        <a href="https://populab.correounivalle.edu.co/" target="_blank" rel="noopener noreferrer" class="btn secondary">Ver sitio web</a>
       </div>
     </div>
 
@@ -571,11 +629,12 @@
       </div>
 
       <div class="case-links">
-        <a href="https://tecnicana.org/revista-tecnicana/?v=ab6c04006660" target="_blank" class="btn">Ver Revista Tecnicaña</a>
+        <a href="https://tecnicana.org/revista-tecnicana/?v=ab6c04006660" target="_blank" rel="noopener noreferrer" class="btn">Ver Revista Tecnicaña</a>
       </div>
     </div>
   </section>
 
+  <!-- TRABAJO: participacion puntual en proyectos web -->
   <section id="trabajo">
     <h2 class="section-title">Trabajo seleccionado</h2>
 
@@ -595,7 +654,7 @@
           fueron realizados por otra persona.
         </p>
 
-        <a href="https://www.hansalaredo.org/" target="_blank">Ver web →</a>
+        <a href="https://www.hansalaredo.org/" target="_blank" rel="noopener noreferrer">Ver web →</a>
       </div>
 
       <div class="work-card">
@@ -608,11 +667,12 @@
           por otra persona.
         </p>
 
-        <a href="https://agenciadpuntas.com/" target="_blank">Ver web →</a>
+        <a href="https://agenciadpuntas.com/" target="_blank" rel="noopener noreferrer">Ver web →</a>
       </div>
     </div>
   </section>
 
+  <!-- TRAYECTORIA: linea de tiempo de experiencia -->
   <section id="trayectoria">
     <h2 class="section-title">Trayectoria profesional</h2>
 
@@ -660,6 +720,7 @@
     </div>
   </section>
 
+  <!-- PROCESO: metodologia de trabajo -->
   <section id="proceso">
     <h2 class="section-title">Mi proceso</h2>
 
@@ -694,6 +755,7 @@
     </div>
   </section>
 
+  <!-- HABILIDADES: stack y capacidades principales -->
   <section id="habilidades">
     <h2 class="section-title">Habilidades</h2>
 
@@ -723,6 +785,7 @@
     </div>
   </section>
 
+  <!-- CONTACTO: canales directos -->
   <section id="contacto">
     <h2 class="section-title">Contacto</h2>
 
@@ -732,11 +795,12 @@
 
     <div class="card">
       <p><strong>Email:</strong> <a href="mailto:julianamonteroo117@gmail.com">julianamonteroo117@gmail.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank">linkedin.com/in/juliana-montero</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/juliana-montero" target="_blank">github.com/juliana-montero</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/juliana-montero</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/juliana-montero" target="_blank" rel="noopener noreferrer">github.com/juliana-montero</a></p>
     </div>
   </section>
 
+  <!-- Footer: cierre y derechos -->
   <footer>
     © 2026 Juliana Montero · Social Media & Content Strategist
   </footer>
