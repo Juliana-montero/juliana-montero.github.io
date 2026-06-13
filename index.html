@@ -66,6 +66,10 @@
       padding: 88px 24px;
     }
 
+    header {
+      padding-bottom: 60px;
+    }
+
     /* Hero principal: texto + foto en dos columnas */
     .hero {
       min-height: 90vh;
@@ -102,10 +106,17 @@
       max-width: 720px;
     }
 
-    .hero p, .intro {
+    .hero p {
       font-size: 18px;
       color: var(--muted);
       max-width: 780px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: var(--muted);
+      width: 100%;
+      max-width: 100%;
     }
 
     .buttons {
@@ -157,6 +168,8 @@
       border-bottom: 1px solid var(--line);
       padding: 46px 0;
       margin-top: 28px;
+      width: 100%;
+      max-width: 100%;
       font-size: 26px;
       line-height: 1.4;
       color: var(--text);
@@ -195,6 +208,13 @@
       border: 1px solid var(--line);
       border-radius: 28px;
       padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover, .work-card:hover, .process-step:hover, .timeline-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
     }
 
     .work-card {
@@ -222,6 +242,10 @@
       margin-top: auto;
     }
 
+    .work-card .work-card-link {
+      margin-top: 14px;
+    }
+
     .card h3, .work-card h3, .process-step h3, .timeline-item h3 {
       font-size: 24px;
       margin-bottom: 10px;
@@ -241,6 +265,71 @@
 
     .case {
       margin-top: 30px;
+    }
+
+    .orbidi-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .orbidi-header {
+      margin-bottom: 20px;
+    }
+
+    .orbidi-label {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 800;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .orbidi-card h3 {
+      font-size: 32px;
+      margin-bottom: 12px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .orbidi-period {
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+
+    .orbidi-description {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .orbidi-list {
+      padding-left: 19px;
+      margin-bottom: 24px;
+    }
+
+    .orbidi-list li {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .orbidi-evidence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .orbidi-evidence {
+        grid-template-columns: 1fr;
+      }
     }
 
     .case-top {
@@ -312,6 +401,14 @@
       object-fit: cover;
       border-radius: 18px;
       background: #000;
+    }
+
+    .evidence-credit {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      font-style: italic;
     }
 
     .reel-video {
@@ -489,7 +586,8 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 26px;
+      margin-top: 18px;
+      padding-top: 18px;
     }
 
     .timeline {
@@ -542,6 +640,70 @@
       padding: 52px 24px;
       border-top: 1px solid var(--line);
       color: var(--muted);
+    }
+
+    /* Contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
+    }
+
+    .contact-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .contact-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-family: "Playfair Display", serif;
+    }
+
+    .contact-link {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      margin-bottom: 10px;
+      word-break: break-all;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .contact-meta {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Responsive: todo pasa a una sola columna en pantallas pequenas */
@@ -634,8 +796,8 @@
 
   <!-- IMPACTO: metricas de trayectoria -->
   <section id="impacto">
-    <h2 class="section-title">Impacto profesional</h2>
-    <p class="intro">Una síntesis de mi experiencia reciente en contenido, redes sociales y comunicación digital.</p>
+    <h2 class="section-title">El camino recorrido</h2>
+    <p class="intro">Una mirada a la experiencia acumulada a través de distintos proyectos y enfoques.</p>
 
     <div class="grid">
       <div class="card">
@@ -660,7 +822,7 @@
     <h2 class="section-title">Casos destacados</h2>
 
     <p class="intro">
-      Proyectos que muestran mi trabajo en estrategia de redes sociales, comunicación digital,
+      Proyectos que han marcado el recorrido de mi trayectoria en estrategia de redes sociales, comunicación digital,
       contenido para marcas y producción audiovisual.
     </p>
 
@@ -737,80 +899,76 @@
       </div>
     </div>
 
-    <div class="case">
-      <div class="case-top">
-        <div>
-          <div class="case-label">Contenido digital · Redes · IA</div>
+      <div class="orbidi-card">
+        <div class="orbidi-header">
+          <span class="orbidi-label">Contenido digital · Redes · IA</span>
           <h3>ORBIDI Digital</h3>
+          <span class="orbidi-period">2024 - Actualidad</span>
         </div>
-        <strong>2024 - Actualidad</strong>
+
+        <p class="orbidi-description">
+          Creación y adaptación de contenido para más de 100 marcas de distintos sectores, con foco en redes sociales, comunicación digital, webs, landing pages y procesos apoyados en inteligencia artificial.
+        </p>
+
+        <ul class="orbidi-list">
+          <li>Redacción de copies para redes sociales, webs y landing pages.</li>
+          <li>Adaptación de tono, propuesta de valor y puntos de dolor según cada marca.</li>
+          <li>Resolución de feedbacks y ajuste de mensajes según necesidades del cliente.</li>
+          <li>Uso de IA para agilizar producción, documentación y adaptación de contenidos.</li>
+          <li>Colaboración con equipos de diseño, SEO, desarrollo, implementación y estrategia.</li>
+        </ul>
+
+        <div class="orbidi-evidence">
+          <div class="evidence-item">
+            <div class="mini-carousel" aria-label="Carrusel de evidencias ORBIDI 1" data-interval="2500">
+              <div class="mini-carousel-track">
+                <img src="assets/1LC.PNG" alt="Carrusel ORBIDI 1: pieza uno" loading="lazy">
+                <img src="assets/2LC.PNG" alt="Carrusel ORBIDI 1: pieza dos" loading="lazy">
+                <img src="assets/3LC.PNG" alt="Carrusel ORBIDI 1: pieza tres" loading="lazy">
+                <img src="assets/4LC.PNG" alt="Carrusel ORBIDI 1: pieza cuatro" loading="lazy">
+                <img src="assets/5LC.PNG" alt="Carrusel ORBIDI 1: pieza cinco" loading="lazy">
+                <img src="assets/6LC.PNG" alt="Carrusel ORBIDI 1: pieza seis" loading="lazy">
+                <img src="assets/7LC.PNG" alt="Carrusel ORBIDI 1: pieza siete" loading="lazy">
+              </div>
+              <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+              <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+            </div>
+          </div>
+
+          <div class="evidence-item">
+            <div class="mini-carousel" aria-label="Carrusel de evidencias ORBIDI 2" data-interval="2500">
+              <div class="mini-carousel-track">
+                <img src="assets/1JOSE.PNG" alt="Carrusel ORBIDI 2: pieza uno" loading="lazy">
+                <img src="assets/2JOSE.PNG" alt="Carrusel ORBIDI 2: pieza dos" loading="lazy">
+                <img src="assets/3JOSE.PNG" alt="Carrusel ORBIDI 2: pieza tres" loading="lazy">
+                <img src="assets/4JOSE.PNG" alt="Carrusel ORBIDI 2: pieza cuatro" loading="lazy">
+                <img src="assets/5JOSE.PNG" alt="Carrusel ORBIDI 2: pieza cinco" loading="lazy">
+              </div>
+              <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+              <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+            </div>
+          </div>
+
+          <div class="evidence-item">
+            <div class="mini-carousel" aria-label="Carrusel de evidencias ORBIDI 3" data-interval="2500">
+              <div class="mini-carousel-track">
+                <img src="assets/1ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza uno" loading="lazy">
+                <img src="assets/2ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza dos" loading="lazy">
+                <img src="assets/3ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza tres" loading="lazy">
+                <img src="assets/4ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza cuatro" loading="lazy">
+                <img src="assets/5ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza cinco" loading="lazy">
+                <img src="assets/6ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza seis" loading="lazy">
+              </div>
+              <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+              <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="evidence-credit">
+          Diseños de: Alison Depablos y Julian Salazar.
+        </p>
       </div>
-
-      <p>
-        Creación y adaptación de contenido para más de 100 marcas de distintos sectores,
-        con foco en redes sociales, comunicación digital, webs, landing pages y procesos
-        apoyados en inteligencia artificial.
-      </p>
-
-      <ul>
-        <li>Redacción de copies para redes sociales, webs y landing pages.</li>
-        <li>Adaptación de tono, propuesta de valor y puntos de dolor según cada marca.</li>
-        <li>Resolución de feedbacks y ajuste de mensajes según necesidades del cliente.</li>
-        <li>Uso de IA para agilizar producción, documentación y adaptación de contenidos.</li>
-        <li>Colaboración con equipos de diseño, SEO, desarrollo, implementación y estrategia.</li>
-      </ul>
-
-      <div class="evidence">
-        <div class="evidence-item">
-          <div class="mini-carousel" aria-label="Carrusel de evidencias ORBIDI 1" data-interval="2500">
-            <div class="mini-carousel-track">
-              <img src="assets/1LC.PNG" alt="Carrusel ORBIDI 1: pieza uno" loading="lazy">
-              <img src="assets/2LC.PNG" alt="Carrusel ORBIDI 1: pieza dos" loading="lazy">
-              <img src="assets/3LC.PNG" alt="Carrusel ORBIDI 1: pieza tres" loading="lazy">
-              <img src="assets/4LC.PNG" alt="Carrusel ORBIDI 1: pieza cuatro" loading="lazy">
-              <img src="assets/5LC.PNG" alt="Carrusel ORBIDI 1: pieza cinco" loading="lazy">
-              <img src="assets/6LC.PNG" alt="Carrusel ORBIDI 1: pieza seis" loading="lazy">
-              <img src="assets/7LC.PNG" alt="Carrusel ORBIDI 1: pieza siete" loading="lazy">
-            </div>
-            <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-            <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
-          </div>
-        </div>
-
-        <div class="evidence-item">
-          <div class="mini-carousel" aria-label="Carrusel de evidencias ORBIDI 2" data-interval="2500">
-            <div class="mini-carousel-track">
-              <img src="assets/1JOSE.PNG" alt="Carrusel ORBIDI 2: pieza uno" loading="lazy">
-              <img src="assets/2JOSE.PNG" alt="Carrusel ORBIDI 2: pieza dos" loading="lazy">
-              <img src="assets/3JOSE.PNG" alt="Carrusel ORBIDI 2: pieza tres" loading="lazy">
-              <img src="assets/4JOSE.PNG" alt="Carrusel ORBIDI 2: pieza cuatro" loading="lazy">
-              <img src="assets/5JOSE.PNG" alt="Carrusel ORBIDI 2: pieza cinco" loading="lazy">
-            </div>
-            <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-            <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
-          </div>
-        </div>
-
-        <div class="evidence-item">
-          <div class="mini-carousel" aria-label="Carrusel de evidencias ORBIDI 3" data-interval="2500">
-            <div class="mini-carousel-track">
-              <img src="assets/1ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza uno" loading="lazy">
-              <img src="assets/2ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza dos" loading="lazy">
-              <img src="assets/3ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza tres" loading="lazy">
-              <img src="assets/4ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza cuatro" loading="lazy">
-              <img src="assets/5ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza cinco" loading="lazy">
-              <img src="assets/6ANGELA.PNG" alt="Carrusel ORBIDI 3: pieza seis" loading="lazy">Í
-            </div>
-            <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-            <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
-          </div>
-          </div>
-      <p>
-        Diseños de: Alison Depablos y Julian Salazar.
-      </p>
-        </div>
-      </div>
-    </div>
 
     <div class="case">
       <div class="case-top">
@@ -876,7 +1034,7 @@
 
   <!-- TRABAJO: participacion puntual en proyectos web -->
   <section id="trabajo">
-    <h2 class="section-title">Conoce otros proyectos destacados</h2>
+    <h2 class="section-title">Dar forma a las ideas para comunicar</h2>
 
     <p class="intro">
       Una selección de proyectos donde participé en la edición, la arquitectura, organización y/o redacción de contenidos. 
@@ -893,7 +1051,7 @@
         redacción integral de los contenidos.
         </p>
 
-        <a href="https://www.hansalaredo.org/" target="_blank" rel="noopener noreferrer" class="btn">Ver web</a>
+          <a href="https://www.hansalaredo.org/" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
 
       <div class="work-card">
@@ -906,7 +1064,7 @@
         redacción integral de los contenidos.
         </p>
 
-        <a href="https://agenciadpuntas.com/" target="_blank" rel="noopener noreferrer" class="btn">Ver web</a>
+          <a href="https://agenciadpuntas.com/" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
 
       <div class="work-card">
@@ -929,25 +1087,25 @@
         algunas ediciones de la revista. 
         </p>
 
-        <a href="https://tecnicana.org/revista-tecnicana/?v=ab6c04006660" target="_blank" rel="noopener noreferrer" class="btn">Leer revista</a>
+          <a href="https://tecnicana.org/revista-tecnicana/?v=ab6c04006660" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Leer revista</a>
       </div>
     </div>
   </section>
 
   <!-- TRAYECTORIA: linea de tiempo de experiencia -->
   <section id="trayectoria">
-    <h2 class="section-title">Trayectoria profesional</h2>
+    <h2 class="section-title">Historial profesional</h2>
 
     <p class="intro">
-      Una evolución que conecta comunicación social, producción audiovisual,
-      redes sociales, marketing digital y estrategia de contenidos.
+      Conoce la evolución de mi trabajo que conecta comunicación social, producción audiovisual,
+      redes sociales, marketing digital y estrategia de contenidos desde diferentes enfoques. 
     </p>
 
     <div class="timeline">
       <div class="timeline-item">
         <span>2024 - Actualidad</span>
         <h3>Copywriter- Content Specialist · ORBIDI Digital</h3>
-        <p>Contenido para redes sociales, webs, landing pages, SEO, IA aplicada y adaptación de mensajes para más de 100 marcas.</p>
+        <p>Contenido para redes sociales, webs, landing pages, SEO, IA aplicada y adaptación de mensajes para más de 100 pymes de España.</p>
       </div>
 
       <div class="timeline-item">
@@ -958,13 +1116,13 @@
 
       <div class="timeline-item">
         <span>2023 - 2024</span>
-        <h3>Auxiliar de Comunicaciones · Tecnicaña</h3>
+        <h3>Auxiliar de Comunicaciones · Asociación de Técnicos de la Caña de Azúcar, Tecnicaña</h3>
         <p>Comunicación institucional, redes sociales, producción audiovisual, eventos y contenidos digitales.</p>
       </div>
 
       <div class="timeline-item">
         <span>2023</span>
-        <h3>Realizadora audiovisual · Proyecto La Calle</h3>
+        <h3>Realizadora audiovisual · Imitating The Dog, Proyecto La Calle</h3>
         <p>Documentación de testimonios, trabajo de campo y comunicación con comunidades.</p>
       </div>
 
@@ -976,7 +1134,7 @@
 
       <div class="timeline-item">
         <span>2022</span>
-        <h3>Asistente de Comunicaciones · Facultad de Ingeniería, Universidad del Valle</h3>
+        <h3>Monitora de Comunicaciones · Facultad de Ingeniería, Universidad del Valle</h3>
         <p>Creación y edición de contenido audiovisual, apoyo en planes de comunicación y presencia digital.</p>
       </div>
     </div>
@@ -1049,23 +1207,40 @@
 
   <!-- CONTACTO: canales directos -->
   <section id="contacto">
-    <h2 class="section-title">Contacto</h2>
+    <h2 class="section-title">¿Tienes proyectos en marcha?</h2>
 
     <p class="intro">
-      Si quieres conocer más sobre mi trabajo o conectar profesionalmente, puedes escribirme.
+      Escribeme un mensaje, estaré encantada de explorar cómo puedo apoyar tus ideas con contenido estratégico y creativo.
     </p>
 
-    <div class="card">
-      <p><strong>Email:</strong> <a href="mailto:julianamonteroo117@gmail.com">julianamonteroo117@gmail.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/juliana-montero</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/juliana-montero" target="_blank" rel="noopener noreferrer">github.com/juliana-montero</a></p>
-    </div>
-  </section>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h3>Email</h3>
+          <a href="mailto:julianamonteroo117@gmail.com" class="contact-link">julianamonteroo117@gmail.com</a>
+          <p class="contact-meta">Respuesta en 24-48h</p>
+        </div>
 
-  <!-- Footer: cierre y derechos -->
-  <footer>
-    © 2026 Juliana Montero · Social Media & Content Strategist
-  </footer>
+        <div class="contact-card">
+          <div class="contact-icon">💼</div>
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/juliana-montero</a>
+          <p class="contact-meta">Conecta conmigo</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">💻</div>
+          <h3>GitHub</h3>
+          <a href="https://github.com/juliana-montero" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/juliana-montero</a>
+          <p class="contact-meta">Ver proyectos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer: cierre y derechos -->
+    <footer>
+      © 2026 Juliana Montero · Social Media & Content Strategist
+    </footer>
 
   <div class="carousel-popup" id="carousel-popup" aria-hidden="true" role="dialog" aria-label="Vista ampliada del carrusel">
     <div class="carousel-popup-content">
