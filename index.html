@@ -7,10 +7,10 @@
   <meta name="description" content="CV y portafolio profesional de Juliana Montero, estratega de redes sociales, contenido digital y comunicacion creativa." />
   <title>Juliana Montero | Social Media & Content Strategist</title>
 
-  <!-- Tipografias: opcion 1 (actual) = Inter + Playfair, opcion 2 = Poppins + Lora -->
+  <!-- Tipografias: Poppins para titulares y Raleway para cuerpos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* Variables de diseno: cambia estos valores para ajustar toda la identidad visual */
@@ -37,14 +37,18 @@
 
     /* Estilos globales de tipografia y color */
     body {
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
     }
 
     h1, h2, h3, .section-title {
-      font-family: "Playfair Display", serif;
+      font-family: "Poppins", sans-serif;
+    }
+
+    h2, h3, .section-title {
+      color: #0A5022;
     }
 
     /* Opcion: subrayado discreto en hover para mejorar accesibilidad */
@@ -61,22 +65,43 @@
     }
 
     header, section {
-      max-width: 1180px;
+      max-width: 1380px;
       margin: auto;
-      padding: 88px 24px;
+      padding: 72px 24px;
     }
 
-    header {
-      padding-bottom: 60px;
-    }
-
-    /* Hero principal: texto + foto en dos columnas */
-    .hero {
-      min-height: 90vh;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 58px;
+    #inicio {
+      max-width: none;
+      min-height: 78vh;
+      margin: 0;
+      padding: 24px 16px;
+      position: relative;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      background-image:
+        linear-gradient(rgba(10, 80, 34, 0.55), rgba(10, 80, 34, 0.55)),
+        linear-gradient(128deg, rgba(10, 80, 34, 0.82) 0%, rgba(228, 235, 221, 0.5) 52%, rgba(248, 245, 240, 0.62) 100%),
+        url("assets/images/hero-placeholder.webp");
+      background-size: cover, 220% 220%, cover;
+      background-position: center center, 0% 50%, center center;
+      background-repeat: no-repeat;
+      animation: heroGradientFlow 18s ease-in-out infinite alternate;
+      will-change: background-position;
+    }
+
+    /* Hero principal centrado sobre imagen */
+    .hero {
+      min-height: 66vh;
+      width: min(1160px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
     }
 
     .tag {
@@ -97,6 +122,11 @@
       margin-bottom: 26px;
     }
 
+    #inicio h1 {
+      color: #FFFFFF !important;
+      white-space: nowrap;
+    }
+
     .hero h2 {
       font-family: "Inter", sans-serif;
       font-size: 24px;
@@ -108,15 +138,76 @@
 
     .hero p {
       font-size: 18px;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.88);
       max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-scroll-hint {
+      margin-top: 20px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      line-height: 1.3;
+      font-family: "Raleway", sans-serif;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .hero-scroll-hint:hover {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-scroll-arrow {
+      font-size: 21px;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.9);
+      animation: heroBounce 2.2s ease-in-out infinite;
+    }
+
+    @keyframes heroBounce {
+      0%,
+      100% {
+        transform: translateY(-2px);
+        opacity: 0.78;
+      }
+      50% {
+        transform: translateY(5px);
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll-arrow {
+        animation: none;
+      }
+
+      #inicio {
+        animation: none;
+      }
+    }
+
+    @keyframes heroGradientFlow {
+      0% {
+        background-position: center center, 0% 50%, center center;
+      }
+      100% {
+        background-position: center center, 100% 50%, center center;
+      }
     }
 
     .intro {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
       width: 100%;
       max-width: 100%;
+      line-height: 1.55;
     }
 
     .buttons {
@@ -166,14 +257,122 @@
     .personal-note {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 46px 0;
-      margin-top: 28px;
+      padding: 34px 0;
+      margin-top: 20px;
       width: 100%;
       max-width: 100%;
       font-size: 26px;
-      line-height: 1.4;
-      color: var(--text);
+      line-height: 1.5;
+      color: var(--accent);
       font-family: "Playfair Display", serif;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+      gap: 22px;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0;
+      gap: 4px;
+    }
+
+    #sobre-mi {
+      padding-top: 44px;
+      padding-bottom: 44px;
+    }
+
+    #sobre-mi .section-title {
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+
+    #sobre-mi .intro {
+      margin-top: 0;
+    }
+
+    .about-subtitle {
+      font-size: 42px;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      color: #0A5022;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .about-photo-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 10px;
+      height: auto;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    }
+
+    .about-photo-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+
+    .about-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .about-metric-card {
+      background: #FCFAF7;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .about-metric-value {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .about-metric-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .about-cta {
+      align-self: flex-start;
+      margin-top: 18px;
+      background: #0a5022;
+      color: #FFFFFF;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .about-cta:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
     }
 
     .section-title {
@@ -246,6 +445,26 @@
       margin-top: 14px;
     }
 
+    .work-more {
+      display: flex;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .work-more-toggle {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .work-more-content {
+      display: none;
+    }
+
+    .work-more-content.is-open {
+      display: grid;
+    }
+
     .card h3, .work-card h3, .process-step h3, .timeline-item h3 {
       font-size: 24px;
       margin-bottom: 10px;
@@ -267,6 +486,82 @@
       margin-top: 30px;
     }
 
+    .populab-case {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.06);
+    }
+
+    .populab-copy h3 {
+      font-size: clamp(30px, 2.6vw, 40px);
+      line-height: 1.14;
+      letter-spacing: -0.4px;
+      margin-bottom: 16px;
+      color: #0A5022;
+    }
+
+    .populab-copy {
+      max-width: 100%;
+    }
+
+    .populab-subline {
+      display: block;
+      margin-top: 2px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .populab-intro {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.68;
+      max-width: none;
+      width: 100%;
+      margin-bottom: 22px;
+    }
+
+    .populab-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .populab-metric-card {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 20px 18px;
+      background: #FFFEFC;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .populab-metric-value {
+      color: var(--accent);
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 0.95;
+      margin-bottom: 8px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .populab-metric-label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .populab-media-row {
+      margin-top: 24px;
+    }
+
     .orbidi-card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -276,7 +571,7 @@
     }
 
     .orbidi-header {
-      margin-bottom: 20px;
+      margin-bottom: 0;
     }
 
     .orbidi-label {
@@ -292,7 +587,7 @@
     .orbidi-card h3 {
       font-size: 32px;
       margin-bottom: 12px;
-      font-family: "Playfair Display", serif;
+      font-family: "Poppins", sans-serif;
     }
 
     .orbidi-period {
@@ -329,6 +624,27 @@
     @media (max-width: 900px) {
       .orbidi-evidence {
         grid-template-columns: 1fr;
+      }
+
+      .populab-case {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .populab-copy h3 {
+        font-size: clamp(34px, 8vw, 46px);
+      }
+
+      .populab-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .populab-metric-value {
+        font-size: 50px;
+      }
+
+      .populab-metric-label {
+        font-size: 30px;
       }
     }
 
@@ -637,7 +953,7 @@
     /* Pie de pagina */
     footer {
       text-align: center;
-      padding: 52px 24px;
+      padding: 40px 20px;
       border-top: 1px solid var(--line);
       color: var(--muted);
     }
@@ -701,28 +1017,183 @@
       margin: 0;
     }
 
+    .top-nav {
+      position: fixed;
+      top: max(12px, env(safe-area-inset-top));
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      width: min(1240px, calc(100% - 24px));
+      z-index: 1200;
+    }
+
+    .top-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 8px 6px;
+      transition: color 0.2s ease;
+    }
+
+    .top-nav a:hover {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .top-nav a.active,
+    .top-nav a[aria-current="page"] {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-services {
+      padding-top: 0;
+      margin-top: -96px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero-services-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 18px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .hero-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      text-align: center;
+      align-items: stretch;
+    }
+
+    .hero-service-item {
+      padding: 18px 16px 16px;
+      border: none;
+      border-radius: 20px;
+      background-color: #fcfffd;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      background-size: 140px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 10px;
+      min-height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-service-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 14px 30px rgba(10, 80, 34, 0.2);
+    }
+
+    .hero-service-icon {
+      width: 42px;
+      height: 42px;
+      padding: 9px;
+      margin: 0 auto 10px;
+      color: #0A5022;
+      background: #cbddd1;
+      border-radius: 50%;
+    }
+
+    .hero-service-item h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+      color: #0A5022;
+    }
+
+    .hero-service-item p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 330px;
+      margin: 0 auto;
+      flex-grow: 1;
+    }
+
     @media (max-width: 900px) {
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-text {
+        padding-top: 0;
+      }
+
+      .about-photo-card {
+        height: auto;
+      }
+
+      .about-photo-card img {
+        height: auto;
+        aspect-ratio: 4 / 5;
+      }
+
+      .about-metrics-row {
+        grid-template-columns: 1fr;
+      }
+
+      #sobre-mi {
+        padding-top: 42px;
+        padding-bottom: 42px;
       }
     }
 
     /* Responsive: todo pasa a una sola columna en pantallas pequenas */
     @media (max-width: 900px) {
       header, section {
-        padding: 58px 20px;
+        padding: 42px 14px;
       }
 
-      .hero, .grid, .grid-2, .grid-3, .evidence, .evidence.four, .process {
+      .grid, .grid-2, .grid-3, .evidence, .evidence.four, .process {
         grid-template-columns: 1fr;
       }
 
-      .photo-box img {
-        height: 420px;
+      #inicio {
+        min-height: 76vh;
+        padding-top: 72px;
+      }
+
+      .hero-services {
+        margin-top: -44px;
+      }
+
+      .hero-services-card {
+        padding: 14px;
+        border-radius: 24px;
+      }
+
+      .hero-services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero {
+        min-height: 78vh;
       }
 
       h1 {
         font-size: 58px;
+      }
+
+      .top-nav {
+        top: max(10px, env(safe-area-inset-top));
+        gap: 14px;
+        width: min(980px, calc(100% - 16px));
+      }
+
+      .hero p {
+        font-size: 17px;
       }
     }
   </style>
@@ -731,91 +1202,99 @@
 <body>
 
   <!-- HERO: propuesta de valor + CTA principales -->
-  <header>
+  <header id="inicio">
+    <nav class="top-nav" aria-label="Navegacion principal">
+      <a href="#inicio" class="active" aria-current="page">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#casos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
     <div class="hero">
-      <div>
-        <span class="tag">Social Media & Content Strategist</span>
-        <h1>Juliana<br>Montero</h1>
+      <div class="hero-content">
+        <h1>Juliana Montero</h1>
 
-        <h2>Estrategia de redes sociales, contenido digital y comunicación creativa.</h2>
+        <p>Transformo ideas en contenidos que informan, conectan y generan impacto.</p>
 
-        <p>
-          Creo estrategias de contenido y redes sociales que ayudan a marcas,
-          organizaciones y proyectos a comunicar mejor sus ideas y conectar con
-          las personas adecuadas.
-        </p>
-
-        <div class="buttons">
-          <a href="#casos" class="btn">Ver proyectos</a>
-          <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" rel="noopener noreferrer" class="btn secondary">LinkedIn</a>
-          <a href="#contacto" class="btn secondary">Contactar</a>
-        </div>
+        <a href="#servicios" class="hero-scroll-hint" aria-label="Desliza y conoce mi trabajo">
+          <span class="hero-scroll-arrow" aria-hidden="true">↓</span>
+          <span>Desliza y conoce mi trabajo</span>
+        </a>
       </div>
-      
-        <div class="photo-box">
-          <!-- Opcion: usar WebP para mejorar rendimiento -->
-          <img src="assets/ JULIANA.png" alt="Retrato profesional de Juliana Montero" loading="eager" decoding="async">
-        </div>
 
     </div>
   </header>
 
-  <!-- SOBRE MI: perfil profesional y enfoque de trabajo -->
-  <section id="sobre-mi">
-    <h2 class="section-title">Sobre mí</h2>
+  <section id="servicios" class="hero-services" aria-label="Servicios principales">
+    <div class="hero-services-card">
+      <div class="hero-services-grid">
+        <article class="hero-service-item">
+          <svg class="hero-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="7" y="2.5" width="10" height="19" rx="2.3"></rect>
+            <line x1="11" y1="18.5" x2="13" y2="18.5"></line>
+            <path d="M16.7 7.3c0-.8-.6-1.4-1.4-1.4-.5 0-1 .3-1.2.8-.2-.5-.7-.8-1.2-.8-.8 0-1.4.6-1.4 1.4 0 1.5 2.6 3 2.6 3s2.6-1.5 2.6-3z"></path>
+            <path d="M11.2 11.5c0-.6-.4-1-1-1-.4 0-.7.2-.9.5-.2-.3-.5-.5-.9-.5-.6 0-1 .4-1 1 0 1.1 1.9 2.1 1.9 2.1s1.9-1 1.9-2.1z"></path>
+          </svg>
+          <h3>Redes sociales</h3>
+          <p>Estrategias de contenido, gestión de comunidades y posicionamiento digital.</p>
+        </article>
 
-    <p class="intro">
-      Soy comunicadora social y estratega digital especializada en redes sociales, contenido y comunicación digital. He trabajado con organizaciones sociales,
-      instituciones académicas y más de 100 marcas de distintos sectores, desarrollando estrategias de contenido, comunicación y posicionamiento digital.
-      <br><br>
-      Me interesa especialmente el papel de las redes sociales como herramientas para construir comunidad, generar visibilidad y conectar personas con ideas, proyectos y organizaciones. 
-      Mi trabajo combina creatividad, estrategia y tecnología para transformar objetivos de comunicación en contenidos claros, relevantes y alineado con cada audiencia.
-    </p>
+        <article class="hero-service-item">
+          <svg class="hero-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 18l4.2-1.1L19 8.1a1.9 1.9 0 0 0 0-2.7l-.4-.4a1.9 1.9 0 0 0-2.7 0L7.1 13.8 6 18z"></path>
+            <path d="M14.9 6l3.1 3.1"></path>
+            <path d="M9.3 16.7 7.8 15.2"></path>
+            <path d="M11.5 18.7h6.5"></path>
+          </svg>
+          <h3>Contenido institucional</h3>
+          <p>Redacción, edición y producción de contenidos alineados con la identidad de cada organización.</p>
+        </article>
 
-    <div class="personal-note">
-      Creo en la comunicación como una herramienta para conectar personas, ideas y proyectos.
-      Por eso me interesa especialmente el contenido que genera conversación, visibilidad y comunidad.
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Redes sociales</h3>
-        <p>Calendarios editoriales, formatos, community management, contenido y seguimiento.</p>
-      </div>
-
-      <div class="card">
-        <h3>Contenido digital</h3>
-        <p>Copies, guiones, reels, carruseles, stories, webs, landing pages y storytelling.</p>
-      </div>
-
-      <div class="card">
-        <h3>IA y procesos</h3>
-        <p>Uso de IA para optimizar documentación, feedbacks, prompts y producción de contenido.</p>
+        <article class="hero-service-item">
+          <svg class="hero-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="12" rx="2"></rect>
+            <line x1="3" y1="14" x2="21" y2="14"></line>
+            <line x1="12" y1="17" x2="12" y2="20"></line>
+            <line x1="8" y1="20" x2="16" y2="20"></line>
+          </svg>
+          <h3>IA y procesos</h3>
+          <p>Optimización de procesos y uso de herramientas para mejorar resultados.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- IMPACTO: metricas de trayectoria -->
-  <section id="impacto">
-    <h2 class="section-title">El camino recorrido</h2>
-    <p class="intro">Una mirada a la experiencia acumulada a través de distintos proyectos y enfoques.</p>
+  <section id="sobre-mi">
+    <div class="about-layout">
+      <div class="about-text">
+        <h3 class="about-subtitle">Sobre mí</h3>
+        <p class="intro">
+          Soy comunicadora social y estratega digital especializada en redes sociales, contenido y comunicación digital. He trabajado con organizaciones sociales,
+          instituciones académicas y más de 100 marcas de distintos sectores, desarrollando estrategias de contenido, comunicación y posicionamiento digital.
+          <br><br>
+          Me interesa especialmente el papel de las redes sociales como herramientas para construir comunidad, generar visibilidad y conectar personas con ideas, proyectos y organizaciones. 
+          Mi trabajo combina creatividad, estrategia y tecnología para transformar objetivos de comunicación en contenidos claros, relevantes y alineado con cada audiencia.
+        </p>
 
-    <div class="grid">
-      <div class="card">
-        <div class="metric">+100</div>
-        <p>marcas trabajadas en distintos sectores.</p>
+        <div class="about-metrics-row" aria-label="Métricas destacadas">
+          <article class="about-metric-card">
+            <div class="about-metric-value">+100</div>
+            <p class="about-metric-text">Marcas de distintos sectores con las que he trabajado.</p>
+          </article>
+
+          <article class="about-metric-card">
+            <div class="about-metric-value">+200</div>
+            <p class="about-metric-text">Contenidos desarrollados entre artículos SEO, redes sociales y piezas digitales.</p>
+          </article>
+        </div>
+
+        <a href="#contacto" class="about-cta">Hablemos y potenciemos tu marca</a>
       </div>
 
-      <div class="card">
-        <div class="metric">+200</div>
-        <p>contenidos desarrollados, incluyendo artículos SEO y piezas digitales.</p>
-      </div>
-
-      <div class="card">
-        <div class="metric">29,8 mil</div>
-        <p>visualizaciones generadas en PopuLab entre enero y junio de 2026.</p>
-      </div>
+      <aside class="about-photo-card" aria-label="Fotografía de perfil">
+        <img src="assets/JULIANA.png" alt="Fotografía para sección Sobre mí" loading="lazy">
+      </aside>
     </div>
+
   </section>
 
   <!-- CASOS: proyectos explicados con contexto, acciones y evidencia -->
@@ -827,97 +1306,54 @@
       contenido para marcas y producción audiovisual.
     </p>
 
-    <div class="case">
-      <div class="case-top">
-        <div>
-          <div class="case-label">Social Media · Comunidad · Estrategia</div>
-          <h3>PopuLab — Universidad del Valle</h3>
-        </div>
-        <strong>2025 - 2026</strong>
-      </div>
+    <div class="case populab-case">
+      <div class="populab-copy">
+        <h3>PopuLab — Universidad del Valle</h3>
+        <span class="populab-subline">Gestión de redes · Creación de contenido</span>
 
-      <p>
-        Reactivación y gestión de redes sociales para un laboratorio universitario enfocado
-        en investigación social, barrios populares y proyectos comunitarios.
-      </p>
+        <p class="populab-intro">Desarrollé e implementé la estrategia de contenido desde cero, definiendo calendarios editoriales, formatos y líneas temáticas alineadas con los objetivos de visibilidad. Además, administré la cuenta de Instagram mediante la planificación y publicación de contenidos, la adaptación de mensajes para diferentes audiencias y el seguimiento de resultados. Como parte de la estrategia de posicionamiento, fortalecí la relación con organizaciones e instituciones de interés a nivel nacional e internacional.</p>
 
-      <ul>
-        <li>Creación de contenido desde cero alineado a objetivos de visibilidad.</li>
-        <li>Definición de calendarios editoriales, formatos y líneas de contenido.</li>
-        <li>Gestión de Instagram, publicación, adaptación de mensajes y seguimiento.</li>
-        <li>Conexión con cuentas de interés a nivel nacional e internacional.</li>
-      </ul>
-
-      <div class="grid">
-        <div class="card">
-          <div class="metric">29,8 mil</div>
-          <p>visualizaciones</p>
-        </div>
-
-        <div class="card">
-          <div class="metric">6 mil</div>
-          <p>cuentas alcanzadas</p>
-        </div>
-
-        <div class="card">
-          <div class="metric">1,5 mil</div>
-          <p>interacciones</p>
-        </div>
-      </div>
-
-      <div class="evidence">
-        <div class="evidence-item">
-          <div class="mini-carousel" aria-label="Carrusel de evidencias de PopuLab" data-interval="2500">
-            <div class="mini-carousel-track">
-              <img src="assets/1CP.png" alt="Carrusel PopuLab: pieza cuatro" loading="lazy">
-              <img src="assets/2CP.png" alt="Carrusel PopuLab: pieza cinco" loading="lazy">
-              <img src="assets/3CP.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
-              <img src="assets/4CP.png" alt="Carrusel PopuLab: pieza siete" loading="lazy">
-              <img src="assets/5CP.png" alt="Carrusel PopuLab: pieza adicional" loading="lazy">
-              <img src="assets/6CP.png" alt="Carrusel PopuLab: pieza adicional" loading="lazy">
+        <div class="orbidi-evidence populab-media-row" aria-label="Evidencias visuales de PopuLab">
+          <div class="evidence-item">
+            <div class="mini-carousel" aria-label="Carrusel de PopuLab 1" data-interval="2800">
+              <div class="mini-carousel-track">
+                <img src="assets/1CP.PNG" alt="Carrusel PopuLab 1, imagen 1" loading="lazy">
+                <img src="assets/2CP.png" alt="Carrusel PopuLab 1, imagen 2" loading="lazy">
+                <img src="assets/3CP.png" alt="Carrusel PopuLab 1, imagen 3" loading="lazy">
+                <img src="assets/4CP.png" alt="Carrusel PopuLab 1, imagen 4" loading="lazy">
+                <img src="assets/5CP.png" alt="Carrusel PopuLab 1, imagen 5" loading="lazy">
+              </div>
+              <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+              <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
             </div>
-            <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-            <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+          </div>
+
+          <div class="evidence-item">
+            <video class="reel-video" controls preload="metadata" playsinline poster="assets/SIETE CARRUSEL POPULAB.png" aria-label="Reel de PopuLab">
+              <source src="assets/REEL1.mp4" type="video/mp4">
+              Tu navegador no soporta video HTML5.
+            </video>
+          </div>
+
+          <div class="evidence-item">
+            <video class="reel-video" controls preload="metadata" playsinline aria-label="Segundo reel de PopuLab">
+              <source src="assets/REEL2POPULAB.mp4" type="video/mp4">
+              Tu navegador no soporta video HTML5.
+            </video>
           </div>
         </div>
-        <div class="evidence-item">
-          <!-- Portada manual: reemplaza REEL1-poster.jpg por tu archivo .jpg o .png -->
-          <video class="reel-video" controls preload="metadata" playsinline poster="assets/SIETE CARRUSEL POPULAB.png" aria-label="Reel 1 PopuLab">
-            <source src="assets/REEL1.mp4" type="video/mp4">
-            Tu navegador no soporta video HTML5.
-          </video>
-        </div>   
-          <div class="evidence-item">
-          <video class="reel-video" controls preload="metadata" playsinline aria-label="Reel 1 PopuLab">
-            <source src="assets/REEL2POPULAB.mp4" type="video/mp4">
-            Tu navegador no soporta video HTML5.
-          </video>
-        </div> 
-
-      <div class="case-links">
-        <a href="https://www.instagram.com/populabcali/" target="_blank" rel="noopener noreferrer" class="btn">Ver Instagram</a>
-        <a href="https://populab.correounivalle.edu.co/" target="_blank" rel="noopener noreferrer" class="btn secondary">Ver sitio web</a>
       </div>
     </div>
 
       <div class="orbidi-card">
         <div class="orbidi-header">
-          <span class="orbidi-label">Contenido digital · Redes · IA</span>
           <h3>ORBIDI Digital</h3>
-          <span class="orbidi-period">2024 - Actualidad</span>
+          <span class="populab-subline">Contenido digital · Redes · IA</span>
         </div>
 
         <p class="orbidi-description">
-          Creación y adaptación de contenido para más de 100 marcas de distintos sectores, con foco en redes sociales, comunicación digital, webs, landing pages y procesos apoyados en inteligencia artificial.
+          Redacté copy para más de 100 marcas en redes sociales, artículos SEO, sitios web y landing pages, adaptando el tono y los mensajes a cada cliente. Además, incorporé herramientas de inteligencia artificial para optimizar procesos y colaboré con equipos de diseño, SEO y estrategia para garantizar resultados alineados con los objetivos de cada proyecto.
         </p>
-
-        <ul class="orbidi-list">
-          <li>Redacción de copies para redes sociales, webs y landing pages.</li>
-          <li>Adaptación de tono, propuesta de valor y puntos de dolor según cada marca.</li>
-          <li>Resolución de feedbacks y ajuste de mensajes según necesidades del cliente.</li>
-          <li>Uso de IA para agilizar producción, documentación y adaptación de contenidos.</li>
-          <li>Colaboración con equipos de diseño, SEO, desarrollo, implementación y estrategia.</li>
-        </ul>
 
         <div class="orbidi-evidence">
           <div class="evidence-item">
@@ -971,44 +1407,17 @@
         </p>
       </div>
 
-    <div class="case">
-      <div class="case-top">
-        <div>
-          <div class="case-label">Comunicación institucional · Eventos · Audiovisual</div>
-          <h3>Tecnicaña</h3>
-        </div>
-        <strong>2023 - 2024</strong>
+    <div class="orbidi-card">
+      <div class="orbidi-header">
+        <h3>Tecnicaña</h3>
+        <span class="populab-subline">Comunicación institucional · Eventos · Audiovisual</span>
       </div>
 
-      <p>
-        Apoyo en comunicación institucional, gestión de contenidos, redes sociales,
-        producción audiovisual y cobertura de eventos para una organización del sector
-        agroindustrial.
+      <p class="orbidi-description">
+        Apoyé la comunicación institucional de una organización del sector agroindustrial mediante la creación de contenidos para canales digitales, producción audiovisual y cobertura de eventos. También participé en la organización de materiales y documentación, así como en la edición de las ediciones 58, 59 y 60 de la Revista Tecnicaña.
       </p>
 
-      <ul>
-        <li>Producción audiovisual, entrevistas, guiones, reels y edición de piezas.</li>
-        <li>Cobertura de eventos, seminarios y actividades institucionales.</li>
-        <li>Diseño y edición de contenidos para canales digitales.</li>
-        <li>Organización de bases de datos, materiales, contenidos y documentación.</li>
-        <li>Participación en edición de contenidos de las versiones 58, 59 y 60 de Revista Tecnicaña.</li>
-      </ul>
-
-    
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="metric">+1.000</div>
-          <p>asistentes en seminario internacional de dos días.</p>
-        </div>
-
-        <div class="card">
-          <div class="metric">+80</div>
-          <p>marcas participantes entre stands, convenios y branding.</p>
-        </div>
-      </div>
-
-      <div class="evidence three">
+      <div class="orbidi-evidence">
         <div class="evidence-item"><img src="assets/TECNICANA2.jpg" alt="Juliana Montero Tecnicana" loading="lazy"></div>
         <div class="evidence-item">
           <!-- Portada manual: reemplaza REEL1-poster.jpg por tu archivo .jpg o .png -->
@@ -1031,6 +1440,8 @@
             <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
           </div>
         </div>
+      </div>
+    </div>
   </section>
 
   <!-- TRABAJO: participacion puntual en proyectos web -->
@@ -1038,7 +1449,7 @@
     <h2 class="section-title">Dar forma a las ideas para comunicar</h2>
 
     <p class="intro">
-      Una selección de proyectos donde participé en la edición, la arquitectura, organización y/o redacción de contenidos. 
+      Una muestra de proyectos en los que trabajé como copywriter, contribuyendo a la arquitectura de contenido y la redacción para sitios web de marcas de sectores como turismo, inmobiliario y salud.
     </p>
 
     <div class="grid-3">
@@ -1047,12 +1458,10 @@
         <h3>La Hansa de Laredo</h3>
 
         <p>
-         Estructuración de la información, 
-         definición de la arquitectura del sitio y 
-        redacción integral de los contenidos.
+         Turismo especializado en recorrer la ruta de La Hansa de Laredo.
         </p>
 
-          <a href="https://www.hansalaredo.org/" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
+            <a href="https://www.figma.com/proto/AJ0lKrr22EbMxrsgeWL1IJ/KOSHER-TIME?t=UM1Dxc0M8EAIkMlh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-1666&starting-point-node-id=1%3A1666" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
 
       <div class="work-card">
@@ -1060,84 +1469,63 @@
         <h3>Agencia Dpuntas</h3>
 
         <p>
-         Estructuración de la información, 
-         definición de la arquitectura del sitio y 
-        redacción integral de los contenidos.
+         Asesoría en diseño de interiores para personas y/o empresas.
         </p>
 
-          <a href="https://agenciadpuntas.com/" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
+          <a href="https://www.figma.com/proto/KQG2kTE2O4jkkXQFHGQNA0/AGENCIA-DPUNTAS?t=8fRZWez3SHv8hWMl-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-778&starting-point-node-id=1%3A778&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
 
       <div class="work-card">
         <div class="evidence-item">
-          <div class="mini-carousel" aria-label="Carrusel de portadas de revistas" data-interval="2800">
-            <div class="mini-carousel-track">
-              <img src="assets/PORTADAWEB1.PNG" alt="Portada de revista Tecnicaña 1" loading="lazy">
-              <img src="assets/PORTADAWEB2.PNG" alt="Portada de revista Tecnicaña 2" loading="lazy">
-              <img src="assets/PORTADAWEB3.JPG" alt="Portada de revista adicional" loading="lazy">
-            </div>
-            <button class="mini-carousel-control prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-            <button class="mini-carousel-control next" type="button" aria-label="Imagen siguiente">&#10095;</button>
-          </div>
+          <img src="assets/MUSHINSTUDIO.png" alt="Mushin Studio" loading="lazy">
         </div>
-        <h3>Edición editorial</h3>
+        <h3>Mushin Studio</h3>
 
         <p>
-         Desarrollo de contenidos y corrección de estilo 
-        para publicaciones editoriales de 
-        algunas ediciones de la revista. 
+         Estudio de diseño de interiores, enfocado en presentar sus servicios, proyectos y propuesta de valor.
         </p>
 
-          <a href="https://tecnicana.org/revista-tecnicana/?v=ab6c04006660" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Leer revista</a>
+            <a href="https://www.figma.com/proto/3YSa0ShPQlWiIr6l31uLxK/KATHERIN-VIDAL?t=UM1Dxc0M8EAIkMlh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-802&starting-point-node-id=1%3A1195" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
     </div>
-  </section>
 
-  <!-- TRAYECTORIA: linea de tiempo de experiencia -->
-  <section id="trayectoria">
-    <h2 class="section-title">Historial profesional</h2>
+    <div class="grid-3 work-more-content" id="work-more-content" aria-hidden="true">
+      <div class="work-card">
+        <div class="evidence-item"><img src="assets/ELRECONTENEDOR.jpeg?v=1" alt="El Recontenedor" loading="lazy"></div>
+        <h3>El Recontenedor</h3>
 
-    <p class="intro">
-      Conoce la evolución de mi trabajo que conecta comunicación social, producción audiovisual,
-      redes sociales, marketing digital y estrategia de contenidos desde diferentes enfoques. 
-    </p>
+        <p>
+         Empresa dedicada a la compra y venta de mobiliario.
+        </p>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <span>2024 - Actualidad</span>
-        <h3>Copywriter- Content Specialist · ORBIDI Digital</h3>
-        <p>Contenido para redes sociales, webs, landing pages, SEO, IA aplicada y adaptación de mensajes para más de 100 pymes de España.</p>
+          <a href="https://www.figma.com/proto/KMGVKDM4N8pgDjsMKXnyyz/DAVID-PUNTAS?t=UM1Dxc0M8EAIkMlh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=5-1376&starting-point-node-id=5%3A1376" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
 
-      <div class="timeline-item">
-        <span>2025 - 2026</span>
-        <h3>Community Manager · PopuLab, Universidad del Valle</h3>
-        <p>Gestión de redes sociales, estrategia de contenidos, community management y reactivación de canales digitales.</p>
+      <div class="work-card">
+        <div class="evidence-item"><img src="assets/MARYORY.png" alt="Maryory Egled" loading="lazy"></div>
+        <h3>Maryory Egled</h3>
+
+        <p>
+         Marca personal de una escritora que busca promocionar su novela y escritos.
+        </p>
+
+          <a href="https://www.figma.com/proto/jvDZjrkOepe7jWVX3wwWYV/MARYORY-EGLED?t=UM1Dxc0M8EAIkMlh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-252&starting-point-node-id=1%3A252" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
 
-      <div class="timeline-item">
-        <span>2023 - 2024</span>
-        <h3>Auxiliar de Comunicaciones · Asociación de Técnicos de la Caña de Azúcar, Tecnicaña</h3>
-        <p>Comunicación institucional, redes sociales, producción audiovisual, eventos y contenidos digitales.</p>
-      </div>
+      <div class="work-card">
+        <div class="evidence-item"><img src="assets/JAIME.png" alt="Jaime Calvet" loading="lazy"></div>
+        <h3>Jaime Calvet</h3>
 
-      <div class="timeline-item">
-        <span>2023</span>
-        <h3>Realizadora audiovisual · Imitating The Dog, Proyecto La Calle</h3>
-        <p>Documentación de testimonios, trabajo de campo y comunicación con comunidades.</p>
-      </div>
+        <p>
+         Sitio web para un vocal coach, diseñado para presentar sus metodología y programas de formación.
+        </p>
 
-      <div class="timeline-item">
-        <span>2023</span>
-        <h3>Practicante de Comunicaciones · GREAT PopuLab</h3>
-        <p>Gestión de redes sociales, creación de contenido y cobertura de eventos académicos y comunitarios.</p>
+          <a href="https://www.figma.com/proto/rmTgHkerQTXbdE8vELE4Bg/JAIME-CALVET?t=UM1Dxc0M8EAIkMlh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-6664&starting-point-node-id=1%3A6664&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <span>2022</span>
-        <h3>Monitora de Comunicaciones · Facultad de Ingeniería, Universidad del Valle</h3>
-        <p>Creación y edición de contenido audiovisual, apoyo en planes de comunicación y presencia digital.</p>
-      </div>
+    <div class="work-more">
+      <button type="button" class="btn work-more-toggle" id="work-more-toggle" aria-expanded="false" aria-controls="work-more-content">Ver más</button>
     </div>
   </section>
 
@@ -1203,6 +1591,12 @@
       <span class="skill">ChatGPT</span>
       <span class="skill">Gemini</span>
       <span class="skill">Inglés B2</span>
+    </div>
+  </section>
+
+  <section aria-label="Frase destacada">
+    <div class="personal-note">
+      <em>Creo en la comunicación como una herramienta para conectar personas, ideas y proyectos. Por eso me interesa especialmente el contenido que genera conversación, visibilidad y comunidad.</em>
     </div>
   </section>
 
@@ -1454,6 +1848,18 @@
         videoEl.volume = 1;
       });
     });
+
+    const workMoreToggle = document.getElementById('work-more-toggle');
+    const workMoreContent = document.getElementById('work-more-content');
+
+    if (workMoreToggle && workMoreContent) {
+      workMoreToggle.addEventListener('click', () => {
+        const isOpen = workMoreContent.classList.toggle('is-open');
+        workMoreContent.setAttribute('aria-hidden', String(!isOpen));
+        workMoreToggle.setAttribute('aria-expanded', String(isOpen));
+        workMoreToggle.textContent = isOpen ? 'Ver menos' : 'Ver más';
+      });
+    }
   </script>
 
 </body>
