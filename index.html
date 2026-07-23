@@ -961,7 +961,7 @@
     /* Contact section */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 300px));
+      grid-template-columns: repeat(2, minmax(0, 380px));
       gap: 24px;
       margin-top: 36px;
       justify-content: center;
@@ -982,9 +982,8 @@
       border-color: var(--accent);
     }
 
-    .contact-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
+    .contact-icon-svg {
+      margin: 0 auto 16px;
       display: block;
     }
 
@@ -1001,7 +1000,9 @@
       text-decoration: none;
       font-weight: 700;
       margin-bottom: 10px;
-      word-break: break-all;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      line-break: auto;
       transition: opacity 0.2s ease;
     }
 
@@ -1205,8 +1206,8 @@
   <header id="inicio">
     <nav class="top-nav" aria-label="Navegacion principal">
       <a href="#inicio" class="active" aria-current="page">Inicio</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#casos">Proyectos</a>
+      <a href="#sobre-mi">Conóceme</a>
+      <a href="#casos">Mis trabajos</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="hero">
@@ -1266,9 +1267,9 @@
   <section id="sobre-mi">
     <div class="about-layout">
       <div class="about-text">
-        <h3 class="about-subtitle">Sobre mí</h3>
+        <h3 class="about-subtitle">¡Hola!</h3>
         <p class="intro">
-          Soy comunicadora social y estratega digital especializada en redes sociales, contenido y comunicación digital. He trabajado con organizaciones sociales,
+          Soy Juliana y soy comunicadora social y estratega digital especializada en redes sociales, contenido y comunicación digital. He trabajado con organizaciones sociales,
           instituciones académicas y más de 100 marcas de distintos sectores, desarrollando estrategias de contenido, comunicación y posicionamiento digital.
           <br><br>
           Me interesa especialmente el papel de las redes sociales como herramientas para construir comunidad, generar visibilidad y conectar personas con ideas, proyectos y organizaciones. 
@@ -1299,7 +1300,7 @@
 
   <!-- CASOS: proyectos explicados con contexto, acciones y evidencia -->
   <section id="casos">
-    <h2 class="section-title">Casos destacados</h2>
+    <h2 class="section-title">¿Qué encuentras aquí?</h2>
 
     <p class="intro">
       Proyectos que han marcado el recorrido de mi trayectoria en estrategia de redes sociales, comunicación digital,
@@ -1446,7 +1447,7 @@
 
   <!-- TRABAJO: participacion puntual en proyectos web -->
   <section id="trabajo">
-    <h2 class="section-title">Dar forma a las ideas para comunicar</h2>
+    <h2 class="section-title">Proyectos web</h2>
 
     <p class="intro">
       Una muestra de proyectos en los que trabajé como copywriter, contribuyendo a la arquitectura de contenido y la redacción para sitios web de marcas de sectores como turismo, inmobiliario y salud.
@@ -1482,7 +1483,7 @@
         <h3>Mushin Studio</h3>
 
         <p>
-         Estudio de diseño de interiores, enfocado en presentar sus servicios, proyectos y propuesta de valor.
+         Estudio de diseño de interiores, enfocado en presentar sus proyectos y propuesta de valor.
         </p>
 
             <a href="https://www.figma.com/proto/3YSa0ShPQlWiIr6l31uLxK/KATHERIN-VIDAL?t=UM1Dxc0M8EAIkMlh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-802&starting-point-node-id=1%3A1195" target="_blank" rel="noopener noreferrer" class="btn work-card-link">Ver web</a>
@@ -1531,7 +1532,7 @@
 
   <!-- PROCESO: metodologia de trabajo -->
   <section id="proceso">
-    <h2 class="section-title">Mi proceso</h2>
+    <h2 class="section-title">¿Cómo es mi proceso de trabajo?</h2>
 
     <p class="intro">
       Trabajo desde una mirada estratégica, conectando objetivos, audiencia, formato y mensaje.
@@ -1610,14 +1611,21 @@
 
       <div class="contact-grid">
         <div class="contact-card">
-          <div class="contact-icon">📧</div>
+          <svg class="hero-service-icon contact-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="M3 8.2 11 13a2 2 0 0 0 2 0l8-4.8"></path>
+          </svg>
           <h3>Email</h3>
           <a href="mailto:julianamonteroo117@gmail.com" class="contact-link">julianamonteroo117@gmail.com</a>
           <p class="contact-meta">Respuesta en 24-48h</p>
         </div>
 
         <div class="contact-card">
-          <div class="contact-icon">💼</div>
+          <svg class="hero-service-icon contact-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="7" width="18" height="12" rx="2"></rect>
+            <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"></path>
+            <path d="M3 12h18"></path>
+          </svg>
           <h3>LinkedIn</h3>
           <a href="https://www.linkedin.com/in/juliana-montero-77088213b/" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/juliana-montero</a>
           <p class="contact-meta">Conecta conmigo</p>
